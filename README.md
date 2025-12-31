@@ -360,9 +360,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Muhammad Abdullah**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: [@yourusername](https://github.com/Ab-khan367)
+- LinkedIn: [Your LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/muhammad-abdullah-ba79b9325?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Besx5wxt4SnaGkojfjGtL4Q%3D%3D))
+- Email: mabdulpanialvi@gmail.com
 
 ---
 
