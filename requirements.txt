@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+langchain
+langchain-community
+langchain-core
+langchain-google-genai
+langchain-huggingface
+langchain-chroma
+pandas
+chromadb
+sentence-transformers
+beautifulsoup4
+lxml

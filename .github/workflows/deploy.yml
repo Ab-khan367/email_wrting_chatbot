@@ -1,0 +1,51 @@
+name: Deploy Email Writing Chatbot to EC2
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            echo "🚀 Connected to EC2"
+
+            cd ~/email_wrting_chatbot
+
+            echo "📥 Pulling latest code"
+            git pull origin main
+
+            echo "🛑 Stopping old container (if exists)"
+            docker stop email-chatbot || true
+            docker rm email-chatbot || true
+
+            echo "🧹 Removing old image"
+            docker rmi email-chatbot || true
+
+            echo "🐳 Building new Docker image"
+            docker build -t email-chatbot .
+
+            echo "▶️ Running new container"
+            docker run -d \
+              --name email-chatbot \
+              -p 7860:7860 \
+              --env-file .env \
+              --restart always \
+              email-chatbot
+
+            echo "✅ Deployment complete"
